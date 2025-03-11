@@ -1,0 +1,39 @@
+.ag-theme-alpine {
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.ag-theme-alpine .ag-cell {
+  padding: 12px;
+}
+
+.ag-theme-alpine .ag-header-cell {
+  padding: 14px;
+  background-color: #f0f0f0;
+  font-weight: bold;
+  text-align: left;
+}
+
+.ag-theme-alpine .ag-row:hover {
+  background-color: #f9f9f9;
+}
+
+.ag-theme-alpine .ag-cell:last-child,
+.ag-theme-alpine .ag-header-cell:last-child {
+  border-right: none;
+}
+
+.ag-theme-alpine .ag-cell:nth-child(3),  /* Targets the 'Store' column */
+.ag-theme-alpine .ag-header-cell:nth-child(3) {
+  border-right: 2px solid #ddd; /* Adjust thickness and color as needed */
+}
+
+/* Remove bottom border for the last empty section */
+.ag-theme-alpine .ag-root-wrapper {
+  border-bottom: none;
+}
+
+/* Remove borders from the last row if needed */
+.ag-theme-alpine .ag-row:last-child .ag-cell {
+  border-bottom: none;
+}
