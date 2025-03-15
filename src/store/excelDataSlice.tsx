@@ -19,7 +19,7 @@ const excelSlice = createSlice({
       state.Calculations = action.payload.Calculations;
       state.Calendar = action.payload.Calendar;
       state.Chart = action.payload.Chart;
-      state.Planning = action.payload.Planning;
+      state.Planning = [];
       state.SKUs = action.payload.SKUs;
       state.Stores = action.payload.Stores;
     },

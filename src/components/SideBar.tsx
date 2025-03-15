@@ -11,6 +11,7 @@ import StoreIcon from "@mui/icons-material/Store";
 import CategoryIcon from "@mui/icons-material/Category";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import InsertChartIcon from "@mui/icons-material/InsertChart";
+import { useLocation } from "react-router-dom";
 
 const menuItems = [
   { text: "Data Store", icon: <StoreIcon />, href: "/" },
@@ -19,19 +20,33 @@ const menuItems = [
   { text: "Charts", icon: <InsertChartIcon />, href: "/chart" },
 ];
 const SideBar = () => {
+  const location = useLocation(); // Get current path
+
   return (
     <List
       sx={{ width: "100%", maxWidth: 180 }}
       component="nav"
       className="min-h-[calc(100vh-100)] "
     >
-      {menuItems.map((item) => (
-        <ListItemButton key={item.text} component="a" href={item.href}>
-          <ListItemIcon>{item.icon}</ListItemIcon>
-          <Typography></Typography>
-          <ListItemText primary={item.text} sx={{ fontWeight: "bold" }} />
-        </ListItemButton>
-      ))}
+      {menuItems.map((item) => {
+        const isActive = location.pathname === item.href;
+
+        return (
+          <ListItemButton
+            key={item.text}
+            component="a"
+            href={item.href}
+            sx={{
+              backgroundColor: isActive ? "#ccc" : "transparent",
+              "&:hover": { backgroundColor: "#ccc" },
+            }}
+          >
+            <ListItemIcon>{item.icon}</ListItemIcon>
+            <Typography></Typography>
+            <ListItemText primary={item.text} sx={{ fontWeight: "bold" }} />
+          </ListItemButton>
+        );
+      })}
     </List>
   );
 };

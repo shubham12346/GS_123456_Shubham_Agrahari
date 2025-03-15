@@ -3,6 +3,8 @@ import { createBrowserRouter } from "react-router-dom";
 import SidebarLayout from "./layout/SidebarLayout";
 import DataStore from "./components/DataStore";
 import Sku from "./components/Sku";
+import Planning from "./components/Planning";
+import Charts from "./components/Charts";
 
 const router = createBrowserRouter([
   {
@@ -19,11 +21,11 @@ const router = createBrowserRouter([
       },
       {
         path: "chart",
-        element: <Sku />,
+        element: <Charts />,
       },
       {
         path: "planning",
-        element: <Sku />,
+        element: <Planning />,
       },
     ],
   },

@@ -1,6 +1,7 @@
 import { DATA_VIEWER_APP } from "../constant";
 import CompanyLogo from "../assets/companyLogo.svg";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import ExpandCircleDownIcon from "@mui/icons-material/ExpandCircleDown";
 
 const Header = () => {
   return (
@@ -13,7 +14,9 @@ const Header = () => {
         <div className="">
           <AccountCircleIcon sx={{ fontSize: "3rem" }} />
         </div>
-        <div className="text-3xl mb-2">User</div>
+        <div className="text-3xl mb-2">
+          <ExpandCircleDownIcon />
+        </div>
       </div>
     </nav>
   );

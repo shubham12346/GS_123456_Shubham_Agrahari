@@ -1,10 +1,10 @@
-import React from "react";
 import ContainerWrapper from "../common/ContainerWrapper";
+import PlanningTable from "./planning/PlanningTable";
 
 const Planning = () => {
   return (
     <ContainerWrapper>
-      <div className="  bg-white border-2 border-black h-full">planing</div>
+      <PlanningTable />
     </ContainerWrapper>
   );
 };

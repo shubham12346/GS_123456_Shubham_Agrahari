@@ -15,3 +15,23 @@ export type StoreRedux = {
   City: string;
   State: string;
 };
+
+export type SkuTable = {
+  id: string;
+  label: string;
+  price: number | string;
+  cost: number | string;
+};
+
+export type SalesData = {
+  store: string;
+  sku: string;
+  salesUnitsWeek1: number;
+  salesDollarsWeek1: number;
+  gmDollarsWeek1: number;
+  gmPercentWeek1: string;
+  salesUnitsWeek2: number;
+  salesDollarsWeek2: number;
+  gmDollarsWeek2: number;
+  gmPercentWeek2: string;
+};

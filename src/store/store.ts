@@ -5,6 +5,10 @@ export const store = configureStore({
   reducer: {
     excel: excelReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false, // Disable the middleware
+    }),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

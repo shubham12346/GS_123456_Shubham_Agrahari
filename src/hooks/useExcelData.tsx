@@ -1,12 +1,17 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setExcelData } from "../store/excelDataSlice";
 import * as XLSX from "xlsx";
 import { ExcelData } from "../types";
+import { RootState } from "../store/store";
 
 const useExcelData = () => {
   const dispatch = useDispatch();
-
+  const stores = useSelector((state: RootState) => state.excel.Stores);
   const fetchAndStoreExcelData = async (filePath: string) => {
+    if (stores.length >= 1) {
+      console.log("Data already exists in Redux, skipping fetch");
+      return;
+    }
     try {
       console.log("Fetching file from:", filePath);
       const response = await fetch(filePath);

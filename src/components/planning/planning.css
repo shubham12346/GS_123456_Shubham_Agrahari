@@ -1,0 +1,14 @@
+.custom-grid {
+  width: 100%;
+  overflow-x: auto; /* Enables horizontal scrolling */
+}
+
+.ag-theme-alpine .ag-cell {
+  padding: 10px; /* Adds padding inside each cell */
+  text-align: center; /* Centers text */
+}
+
+.ag-header-cell {
+  font-weight: bold;
+  text-align: center;
+}

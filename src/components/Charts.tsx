@@ -3,7 +3,7 @@ import ContainerWrapper from "../common/ContainerWrapper";
 const Charts = () => {
   return (
     <ContainerWrapper>
-      <div>Charts</div>
+      <div>This is a chart page</div>
     </ContainerWrapper>
   );
 };
