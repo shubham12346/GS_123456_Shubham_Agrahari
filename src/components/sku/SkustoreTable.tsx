@@ -10,12 +10,12 @@ import {
 import "./skuTable.css";
 import { Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { SkuTable } from "../../types";
+import { SkuInterface, SkuTable } from "../../types";
 
 interface SkuTableProps {
-  data: SkuTable[] | [];
+  data: SkuInterface[] | [];
   onDelete: (id: string) => void;
-  onUpdate: (id: string, field: keyof SkuTable, value: string) => void;
+  onUpdate: (id: string, field: keyof SkuInterface, value: string) => void;
 }
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -24,16 +24,15 @@ const SkustoreTable = ({ data, onDelete, onUpdate }: SkuTableProps) => {
     return <p>Loading Table...</p>;
   }
 
-  console.log("data", data);
-  const columns: (ColDef<SkuTable, any> | ColGroupDef<SkuTable>)[] = [
+  const columns: (ColDef<SkuInterface, any> | ColGroupDef<SkuInterface>)[] = [
     {
       headerName: "",
-      field: "id",
+      field: "ID",
       cellRenderer: (params: any) => (
         <div className="flex justify-center items-center ">
           <Button
             className="bg-red-500 text-white pb-2 "
-            onClick={() => onDelete(params.data.id)}
+            onClick={() => onDelete(params.data.ID)}
           >
             <DeleteIcon sx={{ color: "black" }} />
           </Button>
@@ -43,29 +42,29 @@ const SkustoreTable = ({ data, onDelete, onUpdate }: SkuTableProps) => {
     },
     {
       headerName: "SKU",
-      field: "label",
+      field: "Label",
       flex: 2,
       onCellValueChanged: (params: any) => {
-        onUpdate(params.data.id, "label", params.newValue);
+        onUpdate(params.data.ID, "Label", params.newValue);
       },
       editable: true,
     },
     {
       headerName: "Price",
-      field: "price",
+      field: "Price",
       editable: true,
       flex: 1,
       onCellValueChanged: (params: any) => {
-        onUpdate(params.data.id, "price", params.newValue);
+        onUpdate(params.data.ID, "Price", params.newValue);
       },
     },
     {
       headerName: "Cost",
-      field: "cost",
+      field: "Cost",
       editable: true,
       flex: 3,
       onCellValueChanged: (params: any) => {
-        onUpdate(params.data.id, "cost", params.newValue);
+        onUpdate(params.data.ID, "Cost", params.newValue);
       },
     },
   ];
@@ -78,7 +77,7 @@ const SkustoreTable = ({ data, onDelete, onUpdate }: SkuTableProps) => {
     <div
       className="skuTable"
       style={{
-        height: "80vh",
+        height: "500px",
         width: "100%",
       }}
     >

@@ -7,15 +7,15 @@ import {
   ColGroupDef,
   ModuleRegistry,
 } from "ag-grid-community";
-import { Store } from "../../types";
+import { StoreInterface } from "../../types";
 import "./dataTable.css";
 import { Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 interface StoreTableProps {
-  data: Store[] | [];
-  onDelete: (id: string) => void;
-  onUpdate: (id: string, field: keyof Store, value: string) => void;
+  data: StoreInterface[] | [];
+  onDelete: (ID: string) => void;
+  onUpdate: (ID: string, field: keyof StoreInterface, value: string) => void;
 }
 
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -29,62 +29,58 @@ const StoreTable: React.FC<StoreTableProps> = ({
     return <p>Loading Table...</p>;
   }
 
-  const columns: (ColDef<Store, any> | ColGroupDef<Store>)[] = [
-    {
-      headerName: "",
-      field: "id",
-      cellRenderer: (params: any) => (
-        <div className="flex justify-center items-center ">
-          <Button
-            className="bg-red-500 text-white pb-2 "
-            onClick={() => onDelete(params.data.id)}
-          >
-            <DeleteIcon sx={{ color: "black" }} />
-          </Button>
-        </div>
-      ),
-      flex: 0.3,
-    },
-    {
-      headerName: "S.No",
-      field: "id",
-      cellRenderer: (params: any) => (
-        <div className="flex justify-center items-center">
-          <div>{params?.data?.index}</div>
-        </div>
-      ),
-      flex: 0.6,
-      rowDrag: true,
-    },
-    {
-      headerName: "Store",
-      field: "store",
-      editable: true,
-      flex: 2,
-      onCellValueChanged: (params: any) => {
-        onUpdate(params.data.id, "store", params.newValue);
+  const columns: (ColDef<StoreInterface, any> | ColGroupDef<StoreInterface>)[] =
+    [
+      {
+        headerName: "",
+        field: "ID",
+        cellRenderer: (params: any) => (
+          <div className="flex justify-center items-center ">
+            <Button
+              className="bg-red-500 text-white pb-2 "
+              onClick={() => onDelete(params.data.ID)}
+            >
+              <DeleteIcon sx={{ color: "black" }} />
+            </Button>
+          </div>
+        ),
+        flex: 0.3,
       },
-    },
-    {
-      headerName: "City",
-      field: "city",
-      editable: true,
-      flex: 1,
-      onCellValueChanged: (params: any) => {
-        onUpdate(params.data.id, "city", params.newValue);
+      {
+        headerName: "S.No",
+        field: "SeqNo",
+        flex: 0.6,
+        rowDrag: true,
       },
-    },
-    {
-      headerName: "State",
-      field: "state",
-      editable: true,
-      width: 80,
-      flex: 4,
-      onCellValueChanged: (params: any) => {
-        onUpdate(params.data.id, "state", params.newValue);
+      {
+        headerName: "Store",
+        field: "Label",
+        editable: true,
+        flex: 2,
+        onCellValueChanged: (params: any) => {
+          onUpdate(params.data.ID, "Label", params.newValue);
+        },
       },
-    },
-  ];
+      {
+        headerName: "City",
+        field: "City",
+        editable: true,
+        flex: 1,
+        onCellValueChanged: (params: any) => {
+          onUpdate(params.data.ID, "City", params.newValue);
+        },
+      },
+      {
+        headerName: "State",
+        field: "State",
+        editable: true,
+        width: 80,
+        flex: 4,
+        onCellValueChanged: (params: any) => {
+          onUpdate(params.data.ID, "State", params.newValue);
+        },
+      },
+    ];
 
   const defaultColDef = {
     flex: 1,

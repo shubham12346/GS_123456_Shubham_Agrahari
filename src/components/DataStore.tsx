@@ -1,68 +1,60 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ContainerWrapper from "../common/ContainerWrapper";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import useExcelData from "../hooks/useExcelData";
 import { RootState } from "../store/store";
 import StoreTable from "./datastore/DataStoreTable";
-import { Store } from "../types";
+import { StoreInterface } from "../types";
 import ErrorBoundary from "../common/ErrorBoundary";
+import { updateStores } from "../store/excelDataSlice";
+import { Actions } from "../constant";
 
 const DataStore = () => {
   const { fetchAndStoreExcelData } = useExcelData();
   const Stores = useSelector((state: RootState) => state.excel.Stores);
-  const Planning = useSelector((state: RootState) => state.excel.Planning);
-  console.log("planningData", Planning);
-  const [storeData, setStoreData] = useState<Store[] | []>([]);
+  const dispatch = useDispatch();
 
   const addNewStore = () => {
-    setStoreData([
-      ...storeData,
-      {
-        id: (storeData.length + 1).toString(),
-        index: storeData.length + 1,
-        store: "",
-        city: "",
-        state: "",
-      },
-    ]);
+    dispatch(
+      updateStores({
+        type: Actions.Add,
+        data: {
+          ID: (Stores.length + 1).toString(),
+          Label: "",
+          City: "",
+          State: "",
+          "Seq No.": Stores.length + 1,
+          SeqNo: Stores.length + 1,
+        },
+      })
+    );
   };
 
-  const onDelete = (id: string) => {
-    setStoreData(storeData.filter((store) => store.id !== id));
+  const onDelete = (ID: string) => {
+    dispatch(updateStores({ type: Actions.Delete, data: { ID } }));
   };
 
-  const onUpdate = (id: string, field: keyof Store, value: string) => {
-    setStoreData((prevData) =>
-      prevData.map((store) =>
-        store.id === id ? { ...store, [field]: value } : store
-      )
+  const onUpdate = (ID: string, field: keyof StoreInterface, value: string) => {
+    console.log("ID", ID, "field", field, "value", value);
+    dispatch(
+      updateStores({ type: Actions.Update, data: { ID, field, value } })
     );
   };
 
   useEffect(() => {
-    if (Stores.length > 0) {
-      let newData = Stores.map((item, index) => {
-        return {
-          id: item?.ID as string,
-          store: item?.Label as string,
-          state: item?.State as string,
-          city: item?.City as string,
-          index: index,
-        };
-      });
-
-      setStoreData(newData);
+    if (Stores.length === 0) {
+      fetchAndStoreExcelData("../assets/data.xlsx");
     }
-  }, [Stores]);
-
-  useEffect(() => {
-    fetchAndStoreExcelData("../assets/data.xlsx");
   }, []);
 
   return (
     <ErrorBoundary>
       <ContainerWrapper>
-        <StoreTable data={storeData} onDelete={onDelete} onUpdate={onUpdate} />
+        <StoreTable
+          data={Stores.map((row) => ({ ...row }))}
+          onDelete={onDelete}
+          onUpdate={onUpdate}
+        />
         <button
           className="px-2 py-2 bg-red-300 mt-4 rounded "
           onClick={addNewStore}

@@ -8,12 +8,21 @@ export interface Store {
   state: string;
 }
 
-export type StoreRedux = {
+export type StoreInterface = {
   ID: string;
   Label: string;
-  "Seq No.": number; // Key has a space, so it must be in quotes
+  "Seq No.": number;
   City: string;
   State: string;
+  SeqNo?: number;
+};
+export type dataTable = {
+  ID: string;
+  Label: string;
+  "Seq No.": number;
+  City: string;
+  State: string;
+  SeqNo: number;
 };
 
 export type SkuTable = {
@@ -23,23 +32,25 @@ export type SkuTable = {
   cost: number | string;
 };
 
-export type SalesData = {
+export interface PlaningInterface {
   store: string;
   sku: string;
-  salesUnitsWeek1: number;
-  salesDollarsWeek1: number;
-  gmDollarsWeek1: number;
-  gmPercentWeek1: string;
-  salesUnitsWeek2: number;
-  salesDollarsWeek2: number;
-  gmDollarsWeek2: number;
-  gmPercentWeek2: string;
-  salesUnitsWeek3: number;
-  salesDollarsWeek3: number;
-  gmDollarsWeek3: number;
-  gmPercentWeek3: string;
-  salesUnitsWeek4: number;
-  salesDollarsWeek4: number;
-  gmDollarsWeek4: number;
-  gmPercentWeek4: string;
-};
+  week: string;
+  salesUnits: number;
+}
+export interface SkuInterface {
+  ID: string;
+  Label: string;
+  Class: string;
+  Department: string;
+  Price: number;
+  Cost: number;
+}
+
+export interface CalendarInterface {
+  "Seq No.": number;
+  week: string;
+  "Week Label": string;
+  month: string;
+  "Month Label": string;
+}

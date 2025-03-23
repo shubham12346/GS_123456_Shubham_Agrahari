@@ -19,14 +19,14 @@ const PlanningTable = () => {
   console.log("coldefs:", columnDefs);
 
   return (
-    <div className="planningTable" style={{ height: "80vh", width: "100%" }}>
+    <div className="planningTable" style={{ height: "500px", width: "100%" }}>
       <AgGridReact
         columnDefs={columnDefs}
         rowData={rowData}
         defaultColDef={{ flex: 1, minWidth: 150 }}
         animateRows={true}
-        rowHeight={50}
-        headerHeight={50}
+        rowHeight={60}
+        headerHeight={60}
         suppressHorizontalScroll={false}
       />
     </div>
