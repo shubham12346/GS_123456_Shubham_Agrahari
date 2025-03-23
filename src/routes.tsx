@@ -1,30 +1,30 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import SidebarLayout from "./layout/SidebarLayout";
 import DataStore from "./components/DataStore";
 import Sku from "./components/Sku";
 import Planning from "./components/Planning";
 import Charts from "./components/Charts";
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   [
     {
-      path: "/",
+      path: "",
       element: <SidebarLayout />,
       children: [
         {
-          path: "/",
+          path: "",
           element: <DataStore />,
         },
         {
-          path: "/sku",
+          path: "sku",
           element: <Sku />,
         },
         {
-          path: "/chart",
+          path: "chart",
           element: <Charts />,
         },
         {
-          path: "/planning",
+          path: "planning",
           element: <Planning />,
         },
       ],

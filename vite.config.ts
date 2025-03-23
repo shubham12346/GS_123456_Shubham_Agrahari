@@ -8,5 +8,5 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config
 export default defineConfig({
   plugins: [tailwindcss(), react()],
-  base: "/GS_123456_Shubham_Agrahari",
+  base: "/GS_123456_Shubham_Agrahari/",
 });
