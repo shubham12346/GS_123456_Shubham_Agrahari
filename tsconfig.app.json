@@ -22,5 +22,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "tailwind.config.mjs"]
+  "include": ["src", "tailwind.config.mjs", "vite-env.d.ts", "vite-env.d.ts"]
 }

@@ -1,9 +1,11 @@
-import { createHashRouter } from "react-router-dom";
+import { createBrowserRouter, createHashRouter } from "react-router-dom";
 import SidebarLayout from "./layout/SidebarLayout";
 import DataStore from "./components/DataStore";
 import Sku from "./components/Sku";
 import Planning from "./components/Planning";
 import Charts from "./components/Charts";
+
+const basename = import.meta.env.VITE_BASENAME || "/";
 
 const router = createHashRouter(
   [
@@ -19,7 +21,7 @@ const router = createHashRouter(
     },
   ],
   {
-    basename: "/GS_123456_Shubham_Agrahari",
+    basename: basename,
   }
 );
 

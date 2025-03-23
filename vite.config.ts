@@ -1,12 +1,14 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import path from "path";
 
-// Check if the environment is production
-// const isProduction = process.env.NODE_ENV === "production";
+export default defineConfig(({ mode }) => {
+  // Load environment variables
+  const env = loadEnv(mode, process.cwd(), "VITE_");
 
-// https://vite.dev/config
-export default defineConfig({
-  plugins: [tailwindcss(), react()],
-  base: "/GS_123456_Shubham_Agrahari/",
+  return {
+    plugins: [tailwindcss(), react()],
+    base: env.VITE_BASENAME || "/", // Use the loaded environment variable
+  };
 });
