@@ -1,10 +1,8 @@
-import React from "react";
 import {
   List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  ListSubheader,
   Typography,
 } from "@mui/material";
 import StoreIcon from "@mui/icons-material/Store";

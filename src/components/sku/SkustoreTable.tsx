@@ -10,7 +10,7 @@ import {
 import "./skuTable.css";
 import { Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { SkuInterface, SkuTable } from "../../types";
+import { SkuInterface } from "../../types";
 
 interface SkuTableProps {
   data: SkuInterface[] | [];

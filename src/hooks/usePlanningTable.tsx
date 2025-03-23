@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 
@@ -7,12 +7,7 @@ const usePlanningTable = () => {
     (state: RootState) => state.excel
   );
 
-  const planningMap = useMemo(() => {
-    return new Map(
-      Planning?.map((p: any) => [`${p.Store}_${p.SKU}_${p.Week}`, p])
-    );
-  }, [Planning]);
-  const calculationsMap = useMemo(() => {
+  const calculationsMap: any = useMemo(() => {
     return new Map(
       Calculations?.map((c: any) => [`${c.Store}_${c.SKU}_${c.Week}`, c])
     );
@@ -47,7 +42,7 @@ const usePlanningTable = () => {
       }
 
       // Get the existing row object
-      const row = groupedData.get(key);
+      const row: any = groupedData.get(key);
 
       // Fill data for the specific week
       row[`salesUnits_${week}`] =

@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ContainerWrapper from "../common/ContainerWrapper";
 import SkustoreTable from "./sku/SkustoreTable";
 import { useDispatch, useSelector } from "react-redux";
 import useExcelData from "../hooks/useExcelData";
 import { RootState } from "../store/store";
-import { SkuInterface, SkuTable } from "../types";
+import { SkuInterface } from "../types";
 import ErrorBoundary from "../common/ErrorBoundary";
 import { updateSKUs } from "../store/excelDataSlice";
 import { Actions } from "../constant";
