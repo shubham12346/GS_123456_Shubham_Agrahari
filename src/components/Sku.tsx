@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import useExcelData from "../hooks/useExcelData";
 import { RootState } from "../store/store";
 import { SkuTable } from "../types";
+import ErrorBoundary from "../common/ErrorBoundary";
 
 const Sku = () => {
   const { fetchAndStoreExcelData } = useExcelData();
@@ -57,15 +58,17 @@ const Sku = () => {
   console.log("skuData::", skuData, "skus", skus);
 
   return (
-    <ContainerWrapper>
-      <SkustoreTable data={skuData} onDelete={onDelete} onUpdate={onUpdate} />
-      <button
-        className="px-2 py-2 bg-red-300 mt-4 rounded "
-        onClick={addNewStore}
-      >
-        NEW STORE
-      </button>
-    </ContainerWrapper>
+    <ErrorBoundary>
+      <ContainerWrapper>
+        <SkustoreTable data={skuData} onDelete={onDelete} onUpdate={onUpdate} />
+        <button
+          className="px-2 py-2 bg-red-300 mt-4 rounded "
+          onClick={addNewStore}
+        >
+          NEW STORE
+        </button>
+      </ContainerWrapper>
+    </ErrorBoundary>
   );
 };
 

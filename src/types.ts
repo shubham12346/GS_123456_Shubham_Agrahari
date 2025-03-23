@@ -34,4 +34,12 @@ export type SalesData = {
   salesDollarsWeek2: number;
   gmDollarsWeek2: number;
   gmPercentWeek2: string;
+  salesUnitsWeek3: number;
+  salesDollarsWeek3: number;
+  gmDollarsWeek3: number;
+  gmPercentWeek3: string;
+  salesUnitsWeek4: number;
+  salesDollarsWeek4: number;
+  gmDollarsWeek4: number;
+  gmPercentWeek4: string;
 };

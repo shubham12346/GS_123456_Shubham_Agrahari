@@ -5,10 +5,13 @@ import useExcelData from "../hooks/useExcelData";
 import { RootState } from "../store/store";
 import StoreTable from "./datastore/DataStoreTable";
 import { Store } from "../types";
+import ErrorBoundary from "../common/ErrorBoundary";
 
 const DataStore = () => {
   const { fetchAndStoreExcelData } = useExcelData();
   const Stores = useSelector((state: RootState) => state.excel.Stores);
+  const Planning = useSelector((state: RootState) => state.excel.Planning);
+  console.log("planningData", Planning);
   const [storeData, setStoreData] = useState<Store[] | []>([]);
 
   const addNewStore = () => {
@@ -56,17 +59,18 @@ const DataStore = () => {
     fetchAndStoreExcelData("../assets/data.xlsx");
   }, []);
 
-  console.log("storeData :: ", storeData);
   return (
-    <ContainerWrapper>
-      <StoreTable data={storeData} onDelete={onDelete} onUpdate={onUpdate} />
-      <button
-        className="px-2 py-2 bg-red-300 mt-4 rounded "
-        onClick={addNewStore}
-      >
-        NEW STORE
-      </button>
-    </ContainerWrapper>
+    <ErrorBoundary>
+      <ContainerWrapper>
+        <StoreTable data={storeData} onDelete={onDelete} onUpdate={onUpdate} />
+        <button
+          className="px-2 py-2 bg-red-300 mt-4 rounded "
+          onClick={addNewStore}
+        >
+          NEW STORE
+        </button>
+      </ContainerWrapper>
+    </ErrorBoundary>
   );
 };
 

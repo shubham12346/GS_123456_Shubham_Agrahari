@@ -1,14 +1,74 @@
-.custom-grid {
-  width: 100%;
-  overflow-x: auto; /* Enables horizontal scrolling */
+/* General Styling */
+.planningTable {
+  border-radius: 8px;
+  font-size: 14px;
 }
 
-.ag-theme-alpine .ag-cell {
-  padding: 10px; /* Adds padding inside each cell */
-  text-align: center; /* Centers text */
+/* Cell Styling - Adds Borders */
+.planningTable .ag-cell {
+  padding: 12px;
+  border-right: 1px solid #d1d1d1; /* Light grey border between columns */
+  border-bottom: 1px solid #d1d1d1; /* Light grey border between rows */
 }
 
-.ag-header-cell {
+/* Header Styling - Keeps Borders */
+.planningTable .ag-header-cell {
+  padding: 14px;
+  background-color: #f0f0f0;
   font-weight: bold;
+  text-align: left;
+  border-right: 1px solid #d1d1d1; /* Ensures column separation in header */
+  border-bottom: 2px solid #bfbfbf; /* Slightly thicker bottom border */
+}
+
+/* Remove right border from last column */
+.planningTable .ag-cell:last-child {
+  border-right: none;
+}
+
+/* Remove right border from last header cell */
+.planningTable .ag-header-cell:last-child {
+  border-right: none;
+}
+
+/* Row Hover Effect */
+.planningTable .ag-row:hover .ag-cell {
+  background-color: #f9f9f9;
+}
+
+/* Custom Styling for GM Percent Column (Color Coding) */
+.planningTable .ag-cell[col-id="gmPercentWeek1"],
+.planningTable .ag-cell[col-id="gmPercentWeek2"] {
   text-align: center;
+  font-weight: bold;
+  color: #fff;
+  border-right: 1px solid #d1d1d1;
+}
+
+/* Background colors for GM Percent based on value */
+.planningTable .ag-cell[col-id="gmPercentWeek1"]:not(:empty),
+.planningTable .ag-cell[col-id="gmPercentWeek2"]:not(:empty) {
+  border-radius: 4px;
+}
+
+/* Table Wrapper - Enables Horizontal Scrolling */
+.planningTable .ag-root-wrapper {
+  overflow-x: auto;
+  border: 1px solid #ccc; /* Outer border for the grid */
+  border-radius: 8px;
+}
+
+.planningTable .ag-header-cell {
+  border-right: 2px solid #ddd; /* Adjust thickness & color */
+}
+
+/* Add right border to all table cells except the last column */
+.planningTable .ag-cell {
+  border-right: 2px solid #ddd; /* Matches header style */
+}
+
+/* Remove the right border from the last column */
+.planningTable .ag-header-cell:last-child,
+.planningTable .ag-cell:last-child {
+  border-right: none;
 }

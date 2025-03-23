@@ -1,39 +1,44 @@
-.ag-theme-alpine {
+/* General Styling */
+.skuTable {
   border-radius: 8px;
   font-size: 14px;
 }
 
-.ag-theme-alpine .ag-cell {
+.skuTable .ag-cell {
   padding: 12px;
+  border-right: none; /* Removes the right border from all cells */
 }
 
-.ag-theme-alpine .ag-header-cell {
+/* Keep header borders intact */
+.skuTable .ag-header-cell {
   padding: 14px;
   background-color: #f0f0f0;
   font-weight: bold;
   text-align: left;
+  border-right: 1px solid #ddd; /* Keeps right border only for header */
 }
 
-.ag-theme-alpine .ag-row:hover {
+/* Optional: Add right border to a specific column if needed */
+.skuTable .ag-cell:nth-child(2) {
+  /* Example: Targets the 'Store' column */
+  border-right: 2px solid #ddd; /* Adjust thickness and color */
+}
+.skuTable .ag-cell:nth-child(3) {
+  /* Example: Targets the 'Store' column */
+  border-right: none; /* Adjust thickness and color */
+}
+
+/* Hover effect */
+.skuTable .ag-row:hover {
   background-color: #f9f9f9;
 }
 
-.ag-theme-alpine .ag-cell:last-child,
-.ag-theme-alpine .ag-header-cell:last-child {
-  border-right: none;
-}
-
-.ag-theme-alpine .ag-cell:nth-child(2),  /* Targets the 'Store' column */
-  .ag-theme-alpine .ag-header-cell:nth-child(2) {
-  border-right: 2px solid #ddd; /* Adjust thickness and color as needed */
-}
-
 /* Remove bottom border for the last empty section */
-.ag-theme-alpine .ag-root-wrapper {
+.skuTable .ag-root-wrapper {
   border-bottom: none;
 }
 
 /* Remove borders from the last row if needed */
-.ag-theme-alpine .ag-row:last-child .ag-cell {
+.skuTable .ag-row:last-child .ag-cell {
   border-bottom: none;
 }

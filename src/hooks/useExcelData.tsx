@@ -6,12 +6,12 @@ import { RootState } from "../store/store";
 
 const useExcelData = () => {
   const dispatch = useDispatch();
-  const stores = useSelector((state: RootState) => state.excel.Stores);
+  // const stores = useSelector((state: RootState) => state.excel.Stores);
   const fetchAndStoreExcelData = async (filePath: string) => {
-    if (stores.length >= 1) {
-      console.log("Data already exists in Redux, skipping fetch");
-      return;
-    }
+    // if (stores.length >= 1) {
+    //   console.log("Data already exists in Redux, skipping fetch");
+    //   return;
+    // }
     try {
       console.log("Fetching file from:", filePath);
       const response = await fetch(filePath);

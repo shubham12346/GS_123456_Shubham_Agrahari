@@ -7,11 +7,10 @@ import {
   ColGroupDef,
   ModuleRegistry,
 } from "ag-grid-community";
-import { Store } from "../types";
 import "./skuTable.css";
 import { Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { SkuTable } from "../types";
+import { SkuTable } from "../../types";
 
 interface SkuTableProps {
   data: SkuTable[] | [];
@@ -55,7 +54,7 @@ const SkustoreTable = ({ data, onDelete, onUpdate }: SkuTableProps) => {
       headerName: "Price",
       field: "price",
       editable: true,
-      flex: 2,
+      flex: 1,
       onCellValueChanged: (params: any) => {
         onUpdate(params.data.id, "price", params.newValue);
       },
@@ -64,7 +63,7 @@ const SkustoreTable = ({ data, onDelete, onUpdate }: SkuTableProps) => {
       headerName: "Cost",
       field: "cost",
       editable: true,
-      flex: 1,
+      flex: 3,
       onCellValueChanged: (params: any) => {
         onUpdate(params.data.id, "cost", params.newValue);
       },
@@ -77,7 +76,7 @@ const SkustoreTable = ({ data, onDelete, onUpdate }: SkuTableProps) => {
 
   return (
     <div
-      className="ag-theme-alpine"
+      className="skuTable"
       style={{
         height: "80vh",
         width: "100%",

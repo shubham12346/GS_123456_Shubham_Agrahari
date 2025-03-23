@@ -10,7 +10,7 @@ const Header = () => {
         <img src={CompanyLogo} alt="logo" className="h-12" />
       </div>
       <h1 className="h-1 text-4xl font-semibold"> {DATA_VIEWER_APP}</h1>
-      <div className="flex lg:flex-row gap-4 items-center">
+      <div className="flex lg:flex-row gap-1 items-center">
         <div className="">
           <AccountCircleIcon sx={{ fontSize: "3rem" }} />
         </div>
