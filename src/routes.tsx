@@ -8,23 +8,23 @@ import Charts from "./components/Charts";
 const router = createBrowserRouter(
   [
     {
-      path: "",
+      path: "/",
       element: <SidebarLayout />,
       children: [
         {
-          path: "",
+          path: "/",
           element: <DataStore />,
         },
         {
-          path: "sku",
+          path: "/sku",
           element: <Sku />,
         },
         {
-          path: "chart",
+          path: "/chart",
           element: <Charts />,
         },
         {
-          path: "planning",
+          path: "/planning",
           element: <Planning />,
         },
       ],
