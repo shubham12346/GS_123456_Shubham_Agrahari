@@ -1,5 +1,6 @@
 {
   "name": "assignment",
+  "homepage": "https://shubham12346.github.io/GS_123456_Shubham_Agrahari",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +12,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://shubham12346.github.io/GS_123456_Shubham_Agrahari",
   "dependencies": {
     "@ag-grid-community/client-side-row-model": "^32.3.4",
     "@emotion/react": "^11.14.0",
