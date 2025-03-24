@@ -9,7 +9,7 @@ import StoreIcon from "@mui/icons-material/Store";
 import CategoryIcon from "@mui/icons-material/Category";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import InsertChartIcon from "@mui/icons-material/InsertChart";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const menuItems = [
   { text: "Data Store", icon: <StoreIcon />, href: "/" },
@@ -19,6 +19,7 @@ const menuItems = [
 ];
 const SideBar = () => {
   const location = useLocation(); // Get current path
+  const navigate = useNavigate(); // Get navigate function
 
   return (
     <List
@@ -32,12 +33,12 @@ const SideBar = () => {
         return (
           <ListItemButton
             key={item.text}
-            component="a"
-            href={item.href}
+            component="div"
             sx={{
               backgroundColor: isActive ? "#ccc" : "transparent",
               "&:hover": { backgroundColor: "#ccc" },
             }}
+            onClick={() => navigate(item.href)}
           >
             <ListItemIcon>{item.icon}</ListItemIcon>
             <Typography></Typography>
