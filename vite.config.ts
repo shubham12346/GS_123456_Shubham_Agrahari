@@ -5,7 +5,6 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig(({ mode }) => {
   // Load environment variables
   const env = loadEnv(mode, process.cwd(), "VITE_");
-  console.log("env.VITE_BASENAME", env.VITE_BASENAME);
 
   return {
     plugins: [tailwindcss(), react()],
