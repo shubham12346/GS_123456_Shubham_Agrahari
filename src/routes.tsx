@@ -7,7 +7,7 @@ import Charts from "./components/Charts";
 
 const basename = import.meta.env.VITE_BASENAME || "/";
 
-const router = createHashRouter(
+const router = createBrowserRouter(
   [
     {
       path: "/",
