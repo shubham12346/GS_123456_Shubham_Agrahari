@@ -34,6 +34,14 @@ export default defineConfig(({ mode }) => {
               type: "image/png",
             },
           ],
+          screenshots: [
+            {
+              src: "landing.png",
+              sizes: "1920x1080",
+              type: "image/png",
+              form_factor: "wide",
+            },
+          ],
         },
       }),
     ],
