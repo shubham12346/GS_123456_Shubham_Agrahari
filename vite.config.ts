@@ -10,46 +10,32 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       tailwindcss(),
-      ,
+      react(),
       VitePWA({
-        registerType: "autoUpdate", // Automatically update the service worker
-        workbox: {
-          globPatterns: ["**/*.{js,css,html,ico,png,svg,woff2}"], // Files to cache
-          runtimeCaching: [
-            {
-              urlPattern: /^https:\/\/api\.example\.com\/.*/, // Cache API requests
-              handler: "NetworkFirst",
-              options: {
-                cacheName: "api-cache",
-                expiration: {
-                  maxEntries: 10,
-                  maxAgeSeconds: 60 * 60 * 24, // 1 day
-                },
-              },
-            },
-          ],
-        },
-        includeAssets: ["favicon.ico", "apple-touch-icon.png", "mask-icon.svg"], // Assets to cache
+        registerType: "autoUpdate",
+        includeAssets: ["favicon.svg", "robots.txt", "apple-touch-icon.png"],
         manifest: {
           name: "My Vite PWA",
           short_name: "VitePWA",
           description: "A Vite-based Progressive Web App",
           theme_color: "#ffffff",
+          background_color: "#ffffff",
+          display: "standalone",
+          start_url: "/",
           icons: [
             {
-              src: "pwa-192x192.png", // Path to your icon
+              src: "pwa-192x192.png",
               sizes: "192x192",
               type: "image/png",
             },
             {
-              src: "pwa-512x512.png", // Path to your icon
+              src: "pwa-512x512.png",
               sizes: "512x512",
               type: "image/png",
             },
           ],
         },
       }),
-      react(),
     ],
     base: env.VITE_BASENAME || "/", // Use the loaded environment variable
   };
