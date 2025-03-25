@@ -15,7 +15,7 @@ The application includes the following pages:
 ## **Live Demo**
 
 - **Application:** [https://asses.netlify.app/](https://asses.netlify.app/)
-- **Video Explanation:** [https://asses.netlify.app/](https://asses.netlify.app/)
+- **Video Explanation:** [https://drive.google.com/drive/folders/1timXogA40ch3z2OZFzdu-xaetClAn7MF?usp=sharing/](https://drive.google.com/drive/folders/1timXogA40ch3z2OZFzdu-xaetClAn7MF?usp=sharing/)
 
 ## **Tech Stack & Libraries**
 
