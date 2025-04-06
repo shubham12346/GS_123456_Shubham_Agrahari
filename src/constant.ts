@@ -1,4 +1,4 @@
-export const DATA_VIEWER_APP = "Data Viewer App";
+export const DATA_VIEWER_APP = "Progresive Web App";
 
 export enum Actions {
   Add = "add",
